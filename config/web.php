@@ -8,6 +8,7 @@ $config = [
     'basePath' => dirname(__DIR__),
     'language'=>'Ru-ru',
     'bootstrap' => ['log'],
+    'layout' => 'main.php',
     'modules' => [
         'admin' => [
             'class' => 'app\modules\admin\Module',
@@ -22,6 +23,7 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'Xo82VavlhYvA2Qi9YeJQF1lTHZgex4d_',
+            'baseUrl' => ''
 
         ],
         'cache' => [

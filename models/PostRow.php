@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\db\ActiveRecord;
+use yii\base\Model;
 
 /**
  * This is the model class for table "post_rows".
@@ -14,8 +15,11 @@ use yii\db\ActiveRecord;
  *
  * @property Post $parent
  */
-class PostRow extends ActiveRecord
+class PostRow extends Model
 {
+    public $id;
+    public $parent_id;
+    public $text;
     /**
      * {@inheritdoc}
      */

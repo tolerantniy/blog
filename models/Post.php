@@ -6,6 +6,7 @@ use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 
+
 /**
  * This is the model class for table "posts".
  *
@@ -19,7 +20,6 @@ use yii\db\ActiveRecord;
  */
 class Post extends ActiveRecord
 {
-
     /**
      * @return array
      */
@@ -62,6 +62,7 @@ class Post extends ActiveRecord
             'text' => 'Text',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
+
         ];
     }
 
