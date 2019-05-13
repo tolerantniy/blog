@@ -23,61 +23,48 @@ use yii\base\Model;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 use yii\web\UploadedFile;
+use app\repositories\PostRepository;
+
 
 
 class PostController extends Controller
 {
     public function actionIndex()
     {
+        $repo = new PostRepository();
 
-        $query = Post::find()->select('id, text, title, created_at')->orderBy('id DESC');
-        $pages = new Pagination(['totalCount'=> $query->count(), 'pageSize'=> 3]);
+        $query = $repo->PostSelect();
+        $pages = new Pagination(['totalCount' => $repo->PostCount(), 'pageSize' => 3]);
         $posts = $query->offset($pages->offset)->limit($pages->limit)->all();
-
         return $this->render('index', compact('posts', 'pages'));
     }
+
     public function actionBiography()
     {
         return $this->render('biography');
     }
+
+
     public function actionForm()
     {
         $model_post = new Post();
-
-        if($model_post->load(Yii::$app->request->post())){
-            if($model_post->save()){
-                Yii::$app->session->setFlash('success', 'yes');
-                return $this->refresh();
-            } else{
-                Yii::$app->session->setFlash('error', 'no');
-            }
+        $repo = new PostRepository();
+        if ($models = $repo->save($data)) {
+            Yii::$app->session->setFlash('success', 'yes');
+            return Yii::$app->controller->refresh();
+        } else {
+            Yii::$app->session->setFlash('error', 'no');
         }
 
-//        $query = Post::find()->orderBy('id DESC');
-//        $pages = new Pagination(['totalCount'=> $query->count(), 'pageSize'=> 5]);
-//        $posts = $query->offset($pages->offset)->limit($pages->limit)->all();
-//        $model_row = new PostRow();
-//        if($model_row->load(Yii::$app->request->post())){
-//            if($model_row->save(false)){
-//                Yii::$app->session->setFlash('success', 'yes');
-//                return $this->refresh();
-//            } else{
-//                Yii::$app->session->setFlash('error', 'no');
-//            }
-//        }
-
-        $posts = Post::find()->all();
+        $posts = $repo->PostAll();
 
         return $this->render('form',
             [
             'model_post' => $model_post,
-//            'model_row' => $model_row,
-//            'pages' => $pages,
             'posts' => $posts,
+            'models'=>$models,
 
         ]);
-
-
     }
 
 
@@ -91,7 +78,6 @@ class PostController extends Controller
             $this->redirect(['index']);
         }
     }
-
 
 
     public function actionLogin()
@@ -149,17 +135,6 @@ class PostController extends Controller
     public function actionUpload(){
         $model = new UploadedImg();
 
-//        if (Yii::$app->request->isPost) {
-//
-//            $file = UploadedFile::getInstance($model, 'image');
-//            $fileName = $model->upload($file);
-//
-//            $dbImage = new NameImg();
-//            $dbImage->image_name = $fileName;
-//            if ($dbImage ->load(Yii::$app->request->post())) {
-//            }
-//            $dbImage->save(false);
-//        }
         $dbImage = new NameImg();
         if ((Yii::$app->request->isPost) && $dbImage ->load(Yii::$app->request->post())) {
 
@@ -187,7 +162,6 @@ class PostController extends Controller
                     return $this->redirect(array('/post/form'));
                 }
             }
-
 
         return $this->render('update', [
             'model' => $model,

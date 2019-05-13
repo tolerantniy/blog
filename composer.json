@@ -14,12 +14,14 @@
     },
     "minimum-stability": "stable",
     "require": {
-        "php": ">=5.4.0",
+        "php": ">=7.2.0",
         "yiisoft/yii2": "~2.0.14",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "wbraganca/yii2-dynamicform": "*",
-        "unclead/yii2-multiple-input": "~2.0"
+        "unclead/yii2-multiple-input": "~2.0",
+        "vlucas/phpdotenv": "^3.3",
+        "janisto/yii2-environment": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
@@ -32,9 +34,12 @@
     },
     "config": {
         "process-timeout": 1800,
-        "fxp-asset": {
-            "enabled": false
-        }
+        "repositories": [
+            {
+                "type": "composer",
+                "url": "https://asset-packagist.org"
+            }
+        ]
     },
     "scripts": {
         "post-install-cmd": [
