@@ -26,7 +26,6 @@ use yii\web\UploadedFile;
 use app\repositories\PostRepository;
 
 
-
 class PostController extends Controller
 {
     public function actionIndex()
@@ -60,13 +59,12 @@ class PostController extends Controller
 
         return $this->render('form',
             [
-            'model_post' => $model_post,
-            'posts' => $posts,
-            'models'=>$models,
+                'model_post' => $model_post,
+                'posts' => $posts,
+                'models' => $models,
 
-        ]);
+            ]);
     }
-
 
     public function actionDelete($id = false)
     {
@@ -78,7 +76,6 @@ class PostController extends Controller
             $this->redirect(['index']);
         }
     }
-
 
     public function actionLogin()
     {
@@ -132,11 +129,12 @@ class PostController extends Controller
         ];
     }
 
-    public function actionUpload(){
+    public function actionUpload()
+    {
         $model = new UploadedImg();
 
         $dbImage = new NameImg();
-        if ((Yii::$app->request->isPost) && $dbImage ->load(Yii::$app->request->post())) {
+        if ((Yii::$app->request->isPost) && $dbImage->load(Yii::$app->request->post())) {
 
             $file = UploadedFile::getInstance($model, 'image');
             $fileName = $model->upload($file);
@@ -147,21 +145,22 @@ class PostController extends Controller
 
         return $this->render('upload', [
             'model' => $model,
-            'dbImage'=> $dbImage,
+            'dbImage' => $dbImage,
 
         ]);
 
     }
+
     public function actionUpdate()
     {
         $this->layout = 'uplayouts';
         $model = Post::find()->one();
-            if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-                $model->isNewRecord;
-                if ($model->save()) {
-                    return $this->redirect(array('/post/form'));
-                }
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->isNewRecord;
+            if ($model->save()) {
+                return $this->redirect(array('/post/form'));
             }
+        }
 
         return $this->render('update', [
             'model' => $model,

@@ -1,15 +1,16 @@
 <?php
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-$this->title='Редагувати';
+
+$this->title = 'Редагувати';
 ?>
 <div class="col-md-6">
-<?php $form = ActiveForm::begin()?>
-<?=  $form->field($model, 'id');?>
-<?=  $form->field($model, 'title')->textarea();?>
-<?=  $form->field($model, 'text')->textarea();?>
-<?= Html::submitButton('Оновити', ['class' => 'btn btn-success']);?>
-<?php ActiveForm::end()?>
+    <?php $form = ActiveForm::begin() ?>
+    <?= $form->field($model, 'id'); ?>
+    <?= $form->field($model, 'title')->textarea(); ?>
+    <?= $form->field($model, 'text')->textarea(); ?>
+    <?= Html::submitButton('Оновити', ['class' => 'btn btn-success']); ?>
+    <?php ActiveForm::end() ?>
 
 </div>
 

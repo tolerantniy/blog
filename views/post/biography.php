@@ -2,18 +2,23 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-</head><body>
+</head>
+<body>
 <div class="row-2">
     <div class="col-md-4">
-        <p class="text-xl-center"><h2>Выровненный слева текст для экрана  </h2></p>
+        <p class="text-xl-center">
+        <h2>Выровненный слева текст для экрана </h2></p>
         <p class="text-center">Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum.
-            Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. felis rhoncus. Praeterea iter est quasdam res quas ex communi.  At nos hinc posthac,
+            Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. felis
+            rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac,
             sitientis piros Afros. </p>
         <p class="text-center">Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum.
-            Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. felis rhoncus. Praeterea iter est quasdam res quas ex communi.  At nos hinc posthac,
+            Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. felis
+            rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac,
             sitientis piros Afros. </p>
         <p class="text-center">Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum.
-            Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. felis rhoncus. Praeterea iter est quasdam res quas ex communi.  At nos hinc posthac,
+            Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. felis
+            rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac,
             sitientis piros Afros. </p>
     </div>
     <div class="col-md-8">
@@ -40,7 +45,6 @@
         </div>
     </div>
 </div>
-
 
 
 </body>

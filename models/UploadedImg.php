@@ -19,15 +19,17 @@ class UploadedImg extends Model
 
     public function rules()
     {
-        return[
+        return [
             [['image'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
         ];
     }
-    public function upload(UploadedFile $file){
+
+    public function upload(UploadedFile $file)
+    {
         $this->image = $file;
 
-        if ($this->validate()){
-            $filename = strtolower(uniqid($file->baseName). '.' . $file->extension );
+        if ($this->validate()) {
+            $filename = strtolower(uniqid($file->baseName) . '.' . $file->extension);
             $file->saveAs(Yii::getAlias('@web') . 'uploads/' . $filename);
 //            $this->image->saveAs('uploads/' .$this->image->baseName . '.' . $this->image->extension);
             return $filename;

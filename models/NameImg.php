@@ -14,7 +14,6 @@ use yii\db\ActiveRecord;
 class NameImg extends ActiveRecord
 {
 
-
     public static function tableName()
     {
         return 'uploadedimg';

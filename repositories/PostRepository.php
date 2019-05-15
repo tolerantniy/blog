@@ -32,10 +32,12 @@ class PostRepository implements PostRepositoryInterface
     {
 
     }
+
     public function PostSelect()
     {
         return Post::find()->select('id, text, title, created_at')->orderBy('id DESC');
     }
+
     public function PostCount()
     {
         $qwery = Post::find()->select('id, text, title, created_at');

@@ -10,7 +10,8 @@ namespace app\interfaces;
 
 interface PostRepositoryInterface
 {
-    public  function save($data);
+    public function save($data);
 
     public function PostAll();
 }
+

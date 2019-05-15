@@ -34,11 +34,12 @@ AppAsset::register($this);
 
         </div>
         <div class="col-md-4 text-center">
-            <a class="blog-header-logo text-dark"   href="http://blog/post/index">Тарас Шевченко</a>
+            <a class="blog-header-logo text-dark" href="http://blog/post/index">Тарас Шевченко</a>
         </div>
         <div class="col-md-4 text-right">
             <button type="button" class="btn btn-default btn-lg">
-                <span class="glyphicon glyphicon-search"></span>  Search</button>
+                <span class="glyphicon glyphicon-search"></span> Search
+            </button>
         </div>
     </div>
     <ul class="nav justify-content-center">
@@ -52,29 +53,28 @@ AppAsset::register($this);
             <a class="nav-link" href="http://blog/post/login">Login</a>
         </li>
         <li>
-            <?php   if (!Yii::$app->user->isGuest) {
-              echo Html::a("Выход", ['site/logout'], [
-                    'data' => [
-                        'method' => 'post'
-                    ],
-                    ['class' => 'white text-center']
-                ]
-            );
+            <?php if (!Yii::$app->user->isGuest) {
+                echo Html::a("Выход", ['site/logout'], [
+                        'data' => [
+                            'method' => 'post'
+                        ],
+                        ['class' => 'white text-center']
+                    ]
+                );
             } else {
+                ' <li> </li>';
+            };
+            ?>
+        </li>
+        <?php if (!Yii::$app->user->isGuest) {
+            echo '<li class="nav-item">
+            <a class="nav-link " href="http://blog/post/form">Запис</a>
+        </li>';
+        } else {
             ' <li> </li>';
         };
         ?>
-        </li>
-    <?php   if (!Yii::$app->user->isGuest) {
-        echo '<li class="nav-item">
-            <a class="nav-link " href="http://blog/post/form">Запис</a>
-        </li>';
-    } else {
-       ' <li> </li>';
-    };
-    ?>
     </ul>
-
 
 
     <div class="container">
@@ -98,13 +98,13 @@ AppAsset::register($this);
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"> </script>
+        crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"> </script
+        crossorigin="anonymous"></script
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
         integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"> </script>
+        crossorigin="anonymous"></script>
 </body>
 </html>
 <?php $this->endPage() ?>

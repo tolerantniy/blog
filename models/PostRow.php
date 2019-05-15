@@ -20,6 +20,7 @@ class PostRow extends Model
     public $id;
     public $parent_id;
     public $text;
+
     /**
      * {@inheritdoc}
      */
